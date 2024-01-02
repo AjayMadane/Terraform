@@ -7,6 +7,7 @@ resource "aws_lb" "alb" {
   
   enable_deletion_protection = false
 
+  enable_cross_zone_load_balancing = true
 
   tags = {
     Environment = "production"
