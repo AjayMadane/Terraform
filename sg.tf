@@ -7,7 +7,7 @@ resource "aws_security_group" "allow_tls_ec2" {
     description      = "TLS from VPC"
     from_port        = 22
     to_port          = 22
-    protocol         = "ssh"
+    protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     //ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
   }
@@ -16,7 +16,7 @@ ingress {
     description      = "TLS from VPC"
     from_port        = 80
     to_port          = 80
-    protocol         = "http"
+    protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     //ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
   }
@@ -44,7 +44,7 @@ resource "aws_security_group" "allow_tls_db" {
     description      = "TLS from VPC"
     from_port        = 3306
     to_port          = 3306
-    protocol         = "mysql"
+    protocol         = "tcp"
     cidr_blocks      = ["0.0.0.0/0"]
     //ipv6_cidr_blocks = [aws_vpc.main.ipv6_cidr_block]
   }
