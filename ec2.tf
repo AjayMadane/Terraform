@@ -28,7 +28,7 @@ resource "aws_instance" "public1" {
 
 resource "aws_instance" "public2" {
   ami           = "ami-03643cf1426c9b40b"
-  key_name = "amazon.pem"
+  key_name = aws_key_pair.awskey.key_name
   instance_type = "t3.micro"
   subnet_id     = aws_subnet.public2.id
   vpc_security_group_ids = [aws_security_group.allow_tls_ec2.id]
@@ -47,7 +47,7 @@ resource "aws_instance" "public2" {
 
 resource "aws_instance" "private_db" {
   ami           = "ami-03643cf1426c9b40b"
-  key_name = "amazon.pem"
+  key_name = aws_key_pair.awskey.key_name
   instance_type = "t3.micro"
   subnet_id     = aws_subnet.private.id
   vpc_security_group_ids = [aws_security_group.allow_tls_ec2.id]
